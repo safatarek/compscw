@@ -37,3 +37,19 @@ def permute(bits, table):
 
 def leftshiftbt28(bt28, p):
     return bt28[p:]+bt28[:p]
+
+def gen16keys(keybits):
+    key56=permute(keybits, PC1)
+    C=key56[:28]
+    D=key56[28:]
+
+    keys16=[]
+
+    for shiftn in shiftby:
+        C=leftshiftbt28(C,shiftn)
+        D=leftshiftbt28(D,shiftn)
+
+        CD= C+D
+        Key=permute(CD, PC2)
+        keys16.append(Key)
+    return keys16
