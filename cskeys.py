@@ -20,3 +20,20 @@ PC2= [
     46,42,50,36,29,32
 ]
 shiftby=[1,1,2,2,2,2,2,2,1,2,2,2,2,2,2,1]
+
+import random
+
+def genkey():
+    key= ''
+    for k in range(64):
+        key+=str (random.randint(0,1))
+    return key
+
+def permute(bits, table): 
+    result=''
+    for index in table:
+        result+=bits [index - 1]
+    return result
+
+def leftshiftbt28(bt28, p):
+    return bt28[p:]+bt28[:p]
