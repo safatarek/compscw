@@ -88,3 +88,9 @@ sBox=[
     ]
 
 ]
+
+def sBoxSub(bits48):
+    result=''
+    for boxIndex in range(8):
+        block6=bits48[boxIndex*6:boxIndex*6+6]
+        
