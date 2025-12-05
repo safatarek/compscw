@@ -88,9 +88,11 @@ sBox=[
     ]
 
 ]
-
-def sBoxSub(bits48):
+def XOR(a,b):
     result=''
-    for boxIndex in range(8):
-        block6=bits48[boxIndex*6:boxIndex*6+6]
-        
+    for i in range(len(a)):
+        if a[i]==b[i]:
+            result+='0'
+        else:
+            result+='1'
+    return result
