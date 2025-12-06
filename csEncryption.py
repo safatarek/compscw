@@ -109,9 +109,9 @@ def sBoxSub(bits48):
         block6=bits48[SboxIndex*6:SboxIndex*6+6]
 
         RowBits=block6[0]+block6[5]
-        ColumnBits=block6[1:5]
-
         row=int(RowBits, 2)
+
+        ColumnBits=block6[1:5]
         column=int(ColumnBits, 2)
 
         value=sBox[SboxIndex][row][column]
