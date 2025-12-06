@@ -102,3 +102,18 @@ def permute(bits, table):
     for index in table:
         result+=bits[index - 1]
     return result
+
+def sBoxSub(bits48):
+    result=''
+    for SboxIndex in range(8):
+        block6=bits48[SboxIndex*6:SboxIndex*6+6]
+
+        RowBits=block6[0]+block6[5]
+        ColumnBits=block6[1:5]
+
+        row=int(RowBits, 2)
+        column=int(ColumnBits, 2)
+
+        value=sBox[SboxIndex][row][column]
+        result+='{:04b}'.format(value)
+    return result
