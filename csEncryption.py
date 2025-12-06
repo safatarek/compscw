@@ -96,3 +96,9 @@ def XOR(a,b):
         else:
             result+='1'
     return result
+
+def permute(bits, table): 
+    result=''
+    for index in table:
+        result+=bits[index - 1]
+    return result
