@@ -117,3 +117,9 @@ def sBoxSub(bits48):
         value=sBox[SboxIndex][row][column]
         result+='{:04b}'.format(value)
     return result
+
+def fFunction(R, Ki):
+    expR=permute(R,expansion)
+    x=XOR(expR, Ki)
+    sb=sBoxSub(x)
+    return permute(sb,permutation)
