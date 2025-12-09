@@ -123,3 +123,17 @@ def fFunction(R, Ki):
     x=XOR(expR, Ki)
     sb=sBoxSub(x)
     return permute(sb,permutation)
+
+def EncryptBlock(block64b, roundkeys):
+    IPresult=permute(block64b, IP)
+    L=IPresult[:32]
+    R=IPresult[32:]
+    for i in range(16):
+        NewL=R
+        fFoutput=fFunction(R, roundkeys[i])
+        NewR=XOR(L, fFoutput)
+        L=NewL
+        R=NewR
+    swap=R+L
+    ciphertext64b=permute(swap, FP)
+    return ciphertext64b
