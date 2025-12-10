@@ -18,4 +18,6 @@ def Main():
     DecryptedText=DecryptedMessage(CipherBits, roundkeys)
     print('Decrypted Text:')
     print(DecryptedText)
-    
+
+if __name__ == "__main__":
+    Main()
