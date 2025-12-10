@@ -151,3 +151,12 @@ def BitsToText(bits):
         byte=bits[i:i+8]
         text+=chr(int(byte,2))
     return text
+
+def EncryptedMessage(PlainText, roundkeys):
+    CipherBits=''
+    for i in range(0, len(PlainText), 8):
+        block=PlainText[i:i+8]
+        BlockBits=TextToBits(block)
+        CipherBlock=EncryptBlock(BlockBits, roundkeys)
+        CipherBits+=CipherBlock
+    return CipherBits
