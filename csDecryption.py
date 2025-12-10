@@ -4,7 +4,7 @@ def DecryptedBlock(block64b, roundkeys):
     ipresult=permute(block64b, IP)
     L=ipresult[:32]
     R=ipresult[32:]
-    for i in range(15, -1, -1):
+    for i in range(15, -1, -1): #reversed order of keys
         NewL=R
         fFoutput=fFunction(R, roundkeys[i])
         NewR=XOR(L, fFoutput)
@@ -21,5 +21,5 @@ def DecryptedMessage(CipherBits, roundkeys):
         PlainBlockBits=DecryptedBlock(BlockBits, roundkeys)
         BlockText=BitsToText(PlainBlockBits)
         PlainText+=BlockText
-    PlainText=PlainText.rstrip('\x00')
+    PlainText=PlainText.rstrip('\x00') #padding
     return PlainText
