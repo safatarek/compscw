@@ -137,3 +137,17 @@ def EncryptBlock(block64b, roundkeys):
     swap=R+L
     ciphertext64b=permute(swap, FP)
     return ciphertext64b
+
+def TextToBits(text):
+    bits=''
+    for chrctr in text:
+        asciiValue=ord(chrctr)
+        binary8b=format(asciiValue, '08b')
+        bits+=binary8b
+    return bits
+def BitsToText(bits):
+    text=''
+    for i in range(0,len(bits),8):
+        byte=bits[i:i+8]
+        text+=chr(int(byte,2))
+    return text
