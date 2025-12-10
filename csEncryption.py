@@ -138,9 +138,10 @@ def EncryptBlock(block64b, roundkeys):
     ciphertext64b=permute(swap, FP)
     return ciphertext64b
 
-def TextToBits(text):
+def TextToBits(text8):
+    text8=text8.ljust(8, '\x00')
     bits=''
-    for chrctr in text:
+    for chrctr in text8:
         asciiValue=ord(chrctr)
         binary8b=format(asciiValue, '08b')
         bits+=binary8b
