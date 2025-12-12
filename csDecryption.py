@@ -21,5 +21,5 @@ def DecryptedMessage(CipherBits, roundkeys):
         PlainBlockBits=DecryptedBlock(BlockBits, roundkeys)
         BlockText=BitsToText(PlainBlockBits)
         PlainText+=BlockText
-    PlainText=PlainText.rstrip('\x00') #padding
+    PlainText=PlainText.rstrip('\x00') #removes padding
     return PlainText
